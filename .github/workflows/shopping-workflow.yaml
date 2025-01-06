@@ -36,7 +36,7 @@ jobs:
       - name: Build Docker image
         run: |
           if [ "${{ matrix.service }}" = "cartservice" ]; then
-            docker build -t ${{ matrix.service }}:latest -f ./src/cartservice/src/Dockerfile ./src/cartservice
+            docker build -t ${{ matrix.service }}:latest -f ./src/cartservice/src/Dockerfile ./src/cartservice/src
           else
             docker build -t ${{ matrix.service }}:latest -f ./src/${{ matrix.service }}/Dockerfile ./src/${{ matrix.service }}
           fi
