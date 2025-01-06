@@ -24,7 +24,6 @@ jobs:
           - productcatalogservice
           - recommendationservice
           - shippingservice
-          - shoppingassistantservice
 
     steps:
       - name: Checkout code
