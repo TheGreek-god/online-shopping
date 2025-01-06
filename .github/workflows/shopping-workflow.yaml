@@ -34,7 +34,7 @@ jobs:
 
       - name: Run tests
         run: |
-          cd ./.deploystack/scripts/test
+          cd ./.deploystack/test
           ./run tests.sh
 
       - name: Build Docker image
