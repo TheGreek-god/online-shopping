@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 60  # Increase the timeout as needed
 
     strategy:
       matrix:
@@ -34,7 +35,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ matrix.service }}:latest ./src/${{ matrix.service }}
+          if [ "${{ matrix.service }}" = "cartservice" ]; then
+            docker build -t ${{ matrix.service }}:latest -f ./src/cartservice/src/Dockerfile ./src/cartservice
+          else
+            docker build -t ${{ matrix.service }}:latest -f ./src/${{ matrix.service }}/Dockerfile ./src/${{ matrix.service }}
+          fi
 
       - name: Set up kubectl
         uses: azure/setup-kubectl@v1
