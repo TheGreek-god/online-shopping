@@ -55,7 +55,7 @@ jobs:
     #  - name: Set up kubectl
     #    uses: azure/setup-kubectl@v1
     #    with:
-          version: 'latest'
+    #      version: 'latest'
 
     #  - name: Use Minikube context
     #    run: |
