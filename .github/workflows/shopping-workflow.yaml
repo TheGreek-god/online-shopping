@@ -41,11 +41,11 @@ jobs:
       - name: Build and Push Docker image
         run: |
           if [ "${{ matrix.service }}" = "cartservice" ]; then
-            docker build -t your-dockerhub-username/${{ matrix.service }}:latest -f ./src/cartservice/src/Dockerfile ./src/cartservice/src
-            docker push your-dockerhub-username/${{ matrix.service }}:latest
+            docker build -t username/${{ matrix.service }}:latest -f ./src/cartservice/src/Dockerfile ./src/cartservice/src
+            docker push username/${{ matrix.service }}:latest
           else
-            docker build -t your-dockerhub-username/${{ matrix.service }}:latest -f ./src/${{ matrix.service }}/Dockerfile ./src/${{ matrix.service }}
-            docker push your-dockerhub-username/${{ matrix.service }}:latest
+            docker build -t username/${{ matrix.service }}:latest -f ./src/${{ matrix.service }}/Dockerfile ./src/${{ matrix.service }}
+            docker push username/${{ matrix.service }}:latest
           fi
 
       - name: Start Minikube
