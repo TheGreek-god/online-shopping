@@ -40,10 +40,18 @@ jobs:
             docker build -t ${{ matrix.service }}:latest -f ./src/${{ matrix.service }}/Dockerfile ./src/${{ matrix.service }}
           fi
 
+      - name: Start Minikube
+        run: |
+          minikube start --driver=docker
+
       - name: Set up kubectl
         uses: azure/setup-kubectl@v1
         with:
           version: 'latest'
+
+      - name: Use Minikube context
+        run: |
+          kubectl config use-context minikube
 
       - name: Deploy to Kubernetes
         run: |
