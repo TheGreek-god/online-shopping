@@ -48,28 +48,28 @@ jobs:
             docker push ${{ secrets.DOCKER_USERNAME }}/${{ matrix.service }}:latest
           fi
 
-      - name: Start Minikube
-        run: |
-          minikube start --driver=docker
+    #  - name: Start Minikube
+    #    run: |
+    #    minikube start --driver=docker
 
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v1
-        with:
+    #  - name: Set up kubectl
+    #    uses: azure/setup-kubectl@v1
+    #    with:
           version: 'latest'
 
-      - name: Use Minikube context
-        run: |
-          kubectl config use-context minikube
+    #  - name: Use Minikube context
+    #    run: |
+    #     kubectl config use-context minikube
 
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl apply -f ./release/kubernetes-manifests.yaml
+    #  - name: Deploy to Kubernetes
+    #    run: |
+    #     kubectl apply -f ./release/kubernetes-manifests.yaml
 
-      - name: Get pods
-        run: |
-          kubectl get pods
+    #  - name: Get pods
+    #    run: |
+    #      kubectl get pods
 
-      - name: Get all resources across all namespaces
-        run: |
-          kubectl get all --all-namespaces
+    #  - name: Get all resources across all namespaces
+    #    run: |
+    #      kubectl get all --all-namespaces
           
