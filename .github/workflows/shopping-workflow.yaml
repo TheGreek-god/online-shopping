@@ -72,3 +72,4 @@ jobs:
       - name: Get all resources across all namespaces
         run: |
           kubectl get all --all-namespaces
+          
