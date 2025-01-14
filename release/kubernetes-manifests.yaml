@@ -829,11 +829,11 @@ spec:
           value: "9555"
         resources:
           requests:
-            cpu: 200m
-            memory: 180Mi
-          limits:
-            cpu: 300m
+            cpu: 400m
             memory: 300Mi
+          limits:
+            cpu: 500m
+            memory: 500Mi
         readinessProbe:
           initialDelaySeconds: 20
           periodSeconds: 15
